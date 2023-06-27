@@ -1,4 +1,4 @@
 import { render } from "react-dom";
-import Counter from "./components/Counter";
+import App from "./App";
 
-render(<Counter/>, document.getElementById('app'))
+render(<App/>, document.getElementById('app'))
