@@ -9,7 +9,11 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    // for  absolute paths
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    }    
   },
   "ts-node": {
     "compilerOptions": {
