@@ -15,7 +15,7 @@ export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstan
       chunkFilename: 'css/[name].[contenthash:8].css',
     }),
     new webpack.DefinePlugin({
-      __isDev__: JSON.stringify(isDev),
+      __IS_DEV__: JSON.stringify(isDev),
     }),
     new webpack.HotModuleReplacementPlugin(),
   ];
