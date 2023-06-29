@@ -5,12 +5,11 @@ import 'app/styles/index.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 
 const App = () => {
-  const {theme, toggle} = useTheme()
+  const {theme} = useTheme()
 
   return (
     <div className={classNames('app', {}, [theme])}>
       <Navbar />
-      <button onClick={toggle}>toggle theme</button>
       <AppRoutes />
     </div>
   )
