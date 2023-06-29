@@ -1,20 +1,23 @@
 import { useTheme } from 'app/providers/themeProvider'
+import { Suspense } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
 import { Navbar } from 'widgets/Navbar'
+import { Sidebar } from 'widgets/Sidebar'
 import { AppRoutes } from './providers/routeProvider/AppRoutes'
 import 'app/styles/index.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/sidebar'
 
 const App = () => {
   const {theme} = useTheme()
 
   return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <div className="page-content">
-        <Sidebar/>
-        <AppRoutes />
-      </div>
+      <Suspense fallback=''>
+        <Navbar />
+        <div className="page-content">
+          <Sidebar/>
+          <AppRoutes />
+        </div>
+      </Suspense>
     </div>
   )
 }
