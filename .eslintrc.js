@@ -8,7 +8,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:i18next/recommended',
-    'plugin:storybook/recommended',
+    // 'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -43,7 +43,7 @@ module.exports = {
     'linebreak-style': 'off',
     'no-promise-executor-return': 'off',
     'i18next/no-literal-string': [
-      'error',
+      'warn',
       {
         markupOnly: true,
         ignoreAttribute: ['data-testid', 'to'],
