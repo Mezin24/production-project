@@ -1,7 +1,6 @@
-import cls from './Navbar.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ThemeSitcher } from 'shared/ui/ThemeSwitcher';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
   className?: string;
@@ -10,7 +9,6 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => {
   return (
    <div className={classNames(cls.Navbar, {}, [className])}>
-    <ThemeSitcher/>
     <div className={cls.links}>
       <AppLink to='/'>Main</AppLink>
       <AppLink to='/about'>About</AppLink>
