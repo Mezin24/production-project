@@ -70,7 +70,6 @@ Square.args = {
   children: '>',
   theme: ButtonTheme.BACKGROUND_INVERTED,
   square: true,
-  size: ButtonSize.M,
 };
 
 export const SquareL = Template.bind({});
