@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'app/providers/themeProvider/ui/ThemeProvider';
 import './shared/config/i18nConfig/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary/ui/ErrorBoundary';
+import 'app/styles/index.scss';
 
 render(
   <ErrorBoundary>
