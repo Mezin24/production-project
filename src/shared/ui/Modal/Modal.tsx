@@ -22,7 +22,6 @@ export const Modal = (props: ModalProps) => {
 
   const [isClosed, setIsClosed] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
-  const { theme } = useTheme();
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -54,7 +53,6 @@ export const Modal = (props: ModalProps) => {
   const mods: Record<string, boolean> = {
     [cls.open]: isOpen,
     [cls.closed]: isClosed,
-    [cls[theme]]: true
   };
 
   const contentClick = (e: MouseEvent) => {
@@ -63,7 +61,7 @@ export const Modal = (props: ModalProps) => {
 
   return (
     <Portal>
-      <div className={classNames(cls.Modal, mods, [className])}>
+      <div className={classNames(cls.Modal, mods, [className,])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={contentClick}>
             {children}
