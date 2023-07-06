@@ -1,0 +1,17 @@
+.InputWrapper {
+  display: flex;
+  gap: 5px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  font: inherit;
+  outline: none;
+  color: var(--primary-color);
+
+  &:focus {
+    outline: none;
+  }
+}
