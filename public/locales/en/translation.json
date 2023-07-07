@@ -9,9 +9,12 @@
   "Что то пошло не так": "Something went wrong",
   "перезагрузить страницу": "reload the page",
   "Войти": "Login",
+  "Выйти": "Logout",
   "короткий язык": "En",
   "уменьшить": "decrease",
   "увеличить": "increase",
   "Введите username": "Enter username",
-  "Введите password": "Enter password"
+  "Введите password": "Enter password",
+  "Форма авторизации": "Autorization Form",
+  "Вы ввели некоректный логин или пароль": "You enter invalid username or password"
 }

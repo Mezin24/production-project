@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { User } from 'entities/User';
+import { User, userActions } from 'entities/User';
+import i18n from 'shared/config/i18nConfig/i18n';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
 interface loginByUsernameProps {
   username: string;
@@ -17,10 +19,13 @@ export const loginByUsername = createAsyncThunk<User, loginByUsernameProps, {rej
         throw new Error();
       }
 
+      thunkAPI.dispatch(userActions.setAuthData(response.data));
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
+
       return response.data;
     } catch (error) {
       console.log(error);
-      return thunkAPI.rejectWithValue('error');
+      return thunkAPI.rejectWithValue(i18n.t('Вы ввели некоректный логин или пароль'));
     }
   }
 );
