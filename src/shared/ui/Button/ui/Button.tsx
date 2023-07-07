@@ -21,6 +21,7 @@ export enum ButtonSize {
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
+  disabled?: boolean
 }
 export const Button = (props: ButtonProps) => {
   const {
@@ -29,16 +30,19 @@ export const Button = (props: ButtonProps) => {
     size = ButtonSize.M,
     square,
     children,
+    disabled,
     ...others
   } = props;
 
   const mods: Record<string, boolean> = {
     [cls.square]: square,
+    [cls.disabled]: disabled
   };
 
   return (
     <button
       type="button"
+      disabled={disabled}
       className={classNames(cls.Button, mods, [className, cls[theme], cls[size]])}
       {...others}
     >
