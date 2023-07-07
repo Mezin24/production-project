@@ -1,10 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
 import { loginActions } from 'features/AuthByUserName/model/slice/loginSlice';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Input } from 'shared/ui/Input/Input';
+import {
+  loginByUsername
+} from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginState } from '../../model/selectors/getLoginsState/getLoginState';
 import cls from './LoginForm.module.scss';
 
@@ -25,6 +28,10 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 
+  const onLogin = useCallback(() => {
+    dispatch(loginByUsername({ username, password }));
+  }, [dispatch, password, username]);
+
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Input
@@ -42,7 +49,14 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         className={cls.input}
         placeholder={t('Введите password')}
       />
-      <Button theme={ButtonTheme.OUTLINE} className={cls.loginBtn}>{t('Войти')}</Button>
+      <Button
+        onClick={onLogin}
+        theme={ButtonTheme.OUTLINE}
+        className={cls.loginBtn}
+      >
+        {t('Войти')}
+
+      </Button>
     </div>
   );
 });
