@@ -11,7 +11,9 @@ i18n
   .init({
     fallbackLng: 'ru',
     debug: __IS_DEV__,
-
+    react: {
+      useSuspense: false //   <---- this will do the magic
+    },
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },

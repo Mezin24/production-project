@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import i18n from 'shared/config/i18nConfig/i18n';
 import {
   loginByUsername
 } from '../../model/services/loginByUsername/loginByUsername';
@@ -38,7 +39,13 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Форма авторизации')} />
-      {error && <Text text={error} theme={TextTheme.ERROR} />}
+      {error
+        && (
+          <Text
+            text={i18n.t('Вы ввели некоректный логин или пароль')}
+            theme={TextTheme.ERROR}
+          />
+        )}
       <Input
         onChange={changeUsername}
         value={username}
