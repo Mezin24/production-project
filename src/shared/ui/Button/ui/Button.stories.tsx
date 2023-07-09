@@ -38,6 +38,13 @@ Outline.args = {
   theme: ButtonTheme.OUTLINE,
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Disabled',
+  theme: ButtonTheme.DISABLED,
+  disabled: true
+};
+
 export const OutlineSizeL = Template.bind({});
 OutlineSizeL.args = {
   children: 'Text',

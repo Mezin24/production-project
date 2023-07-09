@@ -4,8 +4,10 @@
 }
 
 .input {
+  padding: 2px;
   flex: 1;
-  border: none;
+  border: 1px solid #fafafa;
+  border-radius: 7px;
   background-color: transparent;
   font: inherit;
   outline: none;
