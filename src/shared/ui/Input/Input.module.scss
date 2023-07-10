@@ -1,0 +1,19 @@
+.InputWrapper {
+  display: flex;
+  gap: 5px;
+}
+
+.input {
+  padding: 2px;
+  flex: 1;
+  border: 1px solid #fafafa;
+  border-radius: 7px;
+  background-color: transparent;
+  font: inherit;
+  outline: none;
+  color: var(--primary-color);
+
+  &:focus {
+    outline: none;
+  }
+}

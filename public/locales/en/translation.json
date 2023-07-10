@@ -11,5 +11,10 @@
   "Войти": "Login",
   "короткий язык": "En",
   "уменьшить": "decrease",
-  "увеличить": "increase"
+  "увеличить": "increase",
+  "Введите username": "Enter username",
+  "Введите password": "Enter password",
+  "Форма авторизации": "Authorization form",
+  "Неверные данные": "Invalid data",
+  "Выйти": "Logout",
 }
