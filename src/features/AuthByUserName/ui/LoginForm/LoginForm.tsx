@@ -5,7 +5,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Input } from 'shared/ui/Input/Input';
-import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  ReducerList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { getLoginUsename } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -17,6 +20,10 @@ import cls from './LoginForm.module.scss';
 export interface LoginFormProps {
   className?: string;
 }
+
+const initialReducers: ReducerList = {
+  login: loginReducer
+};
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
@@ -39,7 +46,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch, password, username]);
 
   return (
-    <DynamicModuleLoader name="login" reducer={loginReducer} removeAfterUnmount>
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <div className={classNames(cls.LoginForm, {}, [className])}>
         <Text title={t('Форма авторизации')} />
         {error && <Text theme={TextTheme.ERROR} text={t('Неверные данные')} />}
