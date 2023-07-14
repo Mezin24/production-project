@@ -1,5 +1,5 @@
 import {
-  ReducersMapObject, AnyAction, CombinedState, Reducer
+  ReducersMapObject, AnyAction, CombinedState, Reducer, Dispatch
 } from '@reduxjs/toolkit';
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { AxiosInstance } from 'axios';
@@ -36,5 +36,6 @@ export interface ThunkExtraArg {
 
 export interface ThunkConfig<T> {
   rejectValue: T,
-  extra: ThunkExtraArg
+  extra: ThunkExtraArg,
+  dispatch: Dispatch
 }

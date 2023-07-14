@@ -19,11 +19,11 @@ export const profileSlice = createSlice({
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+      .addCase(fetchProfileData.fulfilled, (state, action) => {
         state.isLoading = false;
         state.data = action.payload;
       })
-      .addCase(fetchProfileData.rejected, (state, action: PayloadAction<string>) => {
+      .addCase(fetchProfileData.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
