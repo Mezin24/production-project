@@ -95,6 +95,7 @@
     "react-redux": "^7.2.6"
   },
   "loki": {
+    "fetchFailIgnore": ".*",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",

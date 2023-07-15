@@ -8,14 +8,14 @@ import { BrowserRouter } from 'react-router-dom';
 import './shared/config/i18nConfig/i18n';
 
 render(
-  <StoreProvider>
-    <ErrorBoundary>
-      <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
+      <ErrorBoundary>
         <ThemeProvider>
           <App />
         </ThemeProvider>
-      </BrowserRouter>
-    </ErrorBoundary>
-  </StoreProvider>,
+      </ErrorBoundary>
+    </StoreProvider>
+  </BrowserRouter>,
   document.getElementById('app'),
 );
