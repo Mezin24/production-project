@@ -18,5 +18,9 @@
   "Неверные данные": "Invalid data",
   "Выйти": "Logout",
   "Профиль": "Profile",
-  "Страница профиля": "Profile Page"
+  "Страница профиля": "Profile Page",
+  "Произошла ошибка призагрузке профиля": "Error happened while loading the profile",
+  "Попробуйте обновить страницу": "Try to reload the page",
+  "Укажите валюту": "Select currency"
+
 }
