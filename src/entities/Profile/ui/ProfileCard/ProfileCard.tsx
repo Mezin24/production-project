@@ -5,6 +5,7 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -21,6 +22,7 @@ interface ProfileCardProps {
   onChangeUsername?: (value: string) => void;
   onChangeAvatar?: (value: string) => void;
   onChangeCurrency?: (cur: Currency) => void;
+  onChangeCountry?: (cur: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -37,6 +39,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     onChangeAvatar,
     onChangeUsername,
     onChangeCurrency,
+    onChangeCountry,
   } = props;
   const { t } = useTranslation('profile');
 
@@ -119,6 +122,13 @@ export const ProfileCard = (props: ProfileCardProps) => {
         value={data?.currency}
         onChange={onChangeCurrency}
         readonly={readonly}
+        className={cls.input}
+      />
+      <CountrySelect
+        value={data?.country}
+        onChange={onChangeCountry}
+        readonly={readonly}
+        className={cls.input}
       />
     </div>
   );

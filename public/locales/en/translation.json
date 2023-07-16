@@ -21,6 +21,7 @@
   "Страница профиля": "Profile Page",
   "Произошла ошибка призагрузке профиля": "Error happened while loading the profile",
   "Попробуйте обновить страницу": "Try to reload the page",
-  "Укажите валюту": "Select currency"
+  "Укажите валюту": "Select currency",
+  "Укажите страну": "Select country"
 
 }
