@@ -42,7 +42,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const validationError = useSelector(getProfileValidateErrors);
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
   }, [dispatch]);
 
   const validationTranslations = {
