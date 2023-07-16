@@ -26,12 +26,12 @@
     }
   ],
   "profile": {
-    "name": "Pavel",
-    "lastname": "Mezentcev",
-    "age": 30,
+    "name": "Павел",
+    "lastname": "Мezencev",
+    "age": 36,
     "currency": "RUB",
-    "country": "Belarus",
-    "city": "Obninsk",
+    "country": "Russia",
+    "city": "Обнинск",
     "username": "admin",
     "avatar": "https://i.pinimg.com/originals/90/7a/b1/907ab15afa89ef232c9b180fb89b3557.jpg"
   }
