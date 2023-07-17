@@ -9,7 +9,7 @@ export const validateProfileData = (profile?: Profile) => {
   } = profile;
   const errors: ValidateProfileErrors[] = [];
 
-  if (!name && lastname) {
+  if (!name || !lastname) {
     errors.push(ValidateProfileErrors.INDALID_USER_DATA);
   }
 
