@@ -15,12 +15,12 @@ export const SidebarItemsList: SidebarItemType[] = [
   {
     path: RoutePaths.main,
     Icon: HomeIcon,
-    text: 'Главная'
+    text: 'главная'
   },
   {
     path: RoutePaths.about,
     Icon: AboutIcon,
-    text: 'О нас'
+    text: 'о нас'
   },
   {
     path: RoutePaths.profile,
