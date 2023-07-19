@@ -1,5 +1,5 @@
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
-import { FC, useEffect } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -16,9 +16,19 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading
 } from 'entities/Article/model/selectors/getArticleDetails/getArticleDetails';
-import { Text, TextAlign } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
 import cls from './ArticleDetails.module.scss';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import {
+  ArticleImageBlockComponent
+} from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 interface ArticleDetailsProps {
    className?: string;
@@ -33,10 +43,22 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   const { id, className } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const isLoading = true;
-  // const isLoading = useSelector(getArticleDetailsIsLoading);
+  const isLoading = useSelector(getArticleDetailsIsLoading);
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
+
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+    case ArticleBlockType.CODE:
+      return <ArticleCodeBlockComponent className={cls.block} />;
+    case ArticleBlockType.IMAGE:
+      return <ArticleImageBlockComponent className={cls.block} />;
+    case ArticleBlockType.TEXT:
+      return <ArticleTextBlockComponent block={block} className={cls.block} />;
+    default:
+      return null;
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(fetchArticleById(id));
@@ -62,7 +84,23 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
       />
     );
   } else {
-    content = <div>ArticleDetails</div>;
+    content = (
+      <>
+        <div className={cls.avatarWrapper}>
+          <Avatar size={200} src={article?.img} className={cls.avatar} />
+        </div>
+        <Text size={TextSize.L} title={article?.title} text={article?.subtitle} />
+        <div className={cls.articleInfo}>
+          <Icon Svg={EyeIcon} className={cls.icon} />
+          <Text text={article?.views.toString()} />
+        </div>
+        <div className={cls.articleInfo}>
+          <Icon Svg={CalendarIcon} className={cls.icon} />
+          <Text text={article?.createdAt} />
+        </div>
+        {article?.blocks.map(renderBlock)}
+      </>
+    );
   }
 
   return (

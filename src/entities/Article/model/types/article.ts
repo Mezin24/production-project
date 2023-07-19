@@ -4,23 +4,23 @@ export enum ArticleBlockType {
   TEXT = 'TEXT',
 }
 
-interface ArticleBlockBase {
+export interface ArticleBlockBase {
   id: string
   type: ArticleBlockType
 }
 
-interface ArticleCodeBlock extends ArticleBlockBase{
+export interface ArticleCodeBlock extends ArticleBlockBase{
   type: ArticleBlockType.CODE,
   code: string
 }
 
-interface ArticleImageBlock extends ArticleBlockBase{
+export interface ArticleImageBlock extends ArticleBlockBase{
   type: ArticleBlockType.IMAGE,
   src: string,
   title: string
 }
 
-interface ArticleTextBlock extends ArticleBlockBase{
+export interface ArticleTextBlock extends ArticleBlockBase{
   type: ArticleBlockType.TEXT,
   title?: string,
   paragraphs: string[]
