@@ -50,18 +50,20 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
     case ArticleBlockType.CODE:
-      return <ArticleCodeBlockComponent className={cls.block} />;
+      return <ArticleCodeBlockComponent block={block} className={cls.block} key={block.id} />;
     case ArticleBlockType.IMAGE:
-      return <ArticleImageBlockComponent className={cls.block} />;
+      return <ArticleImageBlockComponent block={block} className={cls.block} key={block.id} />;
     case ArticleBlockType.TEXT:
-      return <ArticleTextBlockComponent block={block} className={cls.block} />;
+      return <ArticleTextBlockComponent block={block} className={cls.block} key={block.id} />;
     default:
       return null;
     }
   }, []);
 
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   let content;
@@ -83,7 +85,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
         title={t('Произошла ошибка при загрузке статьи')}
       />
     );
-  } else {
+  } else if (article) {
     content = (
       <>
         <div className={cls.avatarWrapper}>
@@ -92,13 +94,13 @@ export const ArticleDetails: FC<ArticleDetailsProps> = (props) => {
         <Text size={TextSize.L} title={article?.title} text={article?.subtitle} />
         <div className={cls.articleInfo}>
           <Icon Svg={EyeIcon} className={cls.icon} />
-          <Text text={article?.views.toString()} />
+          <Text text={article?.views?.toString()} />
         </div>
         <div className={cls.articleInfo}>
           <Icon Svg={CalendarIcon} className={cls.icon} />
           <Text text={article?.createdAt} />
         </div>
-        {article?.blocks.map(renderBlock)}
+        {article?.blocks?.map(renderBlock)}
       </>
     );
   }
