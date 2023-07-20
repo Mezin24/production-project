@@ -2,6 +2,12 @@
   cursor: pointer;
   color: var(--primary-color);
   padding: 6px 15px;
+
+  &:hover {
+    opacity: 0.8;
+    fill-opacity: 80%;
+    stroke-opacity: 80%;
+  }
 }
 
 .clear,
@@ -20,6 +26,12 @@
   background-color: transparent;
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
+}
+
+.outline_red {
+  background-color: transparent;
+  color: var(--red-light);
+  border: 1px solid var(--red-light);
 }
 
 .square {

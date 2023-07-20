@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import 'app/styles/index.scss';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
   title: 'shared/Text',
@@ -19,6 +19,13 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: 'Some title text',
   text: 'Some very long text in the text component'
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+  title: 'Some title text',
+  text: 'Some very long text in the text component',
+  size: TextSize.L
 };
 
 export const Error = Template.bind({});
