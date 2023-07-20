@@ -22,10 +22,10 @@ Primary.args = {
     lastname: 'Ivanov',
     age: 23,
     city: 'Moscow',
+    username: 'Vania',
+    avatar: AvatarImg,
     country: Country.Russia,
     currency: Currency.RUB,
-    username: 'Vania',
-    avatar: AvatarImg
   }
 };
 
