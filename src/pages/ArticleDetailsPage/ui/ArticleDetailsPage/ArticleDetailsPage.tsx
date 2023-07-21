@@ -17,7 +17,9 @@ import {
   fetchCommentsByArticleId
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/AddComentForm';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
+import {
+  addCommentForArticle
+} from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import {
   articleDetailsCommentsReducer, getArticleComments
 } from '../../model/slices/articleDetailsCommentSlice';

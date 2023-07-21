@@ -12,6 +12,7 @@ const data = {
   country: Country.Russia,
   currency: Currency.RUB,
   username: 'Vania',
+  id: '1'
 };
 
 describe('updateProfileData', () => {

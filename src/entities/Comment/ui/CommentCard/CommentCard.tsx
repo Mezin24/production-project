@@ -20,7 +20,7 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.commentCard, {}, [className])}>
+      <div className={classNames(cls.commentCard, {}, [className, cls.loading])}>
         <div className={cls.header}>
           <Skeleton width={30} height={30} border="50%" />
           <Skeleton height={20} width={150} />
@@ -29,6 +29,8 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
       </div>
     );
   }
+
+  if (!comment) return null;
 
   return (
     <div className={classNames(cls.commentCard, {}, [className])}>

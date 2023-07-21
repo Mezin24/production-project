@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,36 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "text": "test comment",
+      "articleId": "1",
+      "userId": "2",
+      "id": "dzV_UJK"
+    },
+    {
+      "text": "second test comment",
+      "articleId": "1",
+      "userId": "1",
+      "id": "Qt-0DA_"
+    },
+    {
+      "text": "test 4",
+      "articleId": "1",
+      "userId": "1",
+      "id": "7SrvfwL"
+    },
+    {
+      "text": "test 5",
+      "articleId": "1",
+      "userId": "2",
+      "id": "_algHqw"
+    },
+    {
+      "text": "test refactor",
+      "articleId": "1",
+      "userId": "2",
+      "id": "Vh43ncq"
     }
   ],
   "users": [
@@ -121,7 +153,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "Max",
+      "name": "Max",
       "lastname": "Screecher",
       "age": 6,
       "currency": "RUB",
@@ -132,13 +164,13 @@
     },
     {
       "id": "2",
-      "first": "Pavel",
+      "name": "Pavel",
       "lastname": "Mezentcev",
       "age": 36,
       "currency": "RUB",
-      "country": "Russia",
+      "country": "Belarus",
       "city": "Obninsk",
-      "username": "Mezin24",
+      "username": "user",
       "avatar": "https://funnyexpo.com/wp-content/uploads/2017/08/Image-1-23.jpg"
     }
   ]

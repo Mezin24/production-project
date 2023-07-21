@@ -18,8 +18,9 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './AddCommentForm.module.scss';
 
-interface AddCommentFormProps {
+export interface AddCommentFormProps {
    className?: string;
+   onSendComment: (text: string) => void
 }
 
 const reducers: ReducerList = {
@@ -27,7 +28,7 @@ const reducers: ReducerList = {
 };
 
 const AddCommentForm: FC<AddCommentFormProps> = (props) => {
-  const { className } = props;
+  const { className, onSendComment } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
@@ -35,6 +36,11 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
   const onCommentTextChange = useCallback((value: string) => {
     dispatch(addCommentFormActions.setText(value));
   }, [dispatch]);
+
+  const onSubmit = useCallback(() => {
+    onSendComment(text || '');
+    dispatch(addCommentFormActions.setText(''));
+  }, [dispatch, onSendComment, text]);
 
   return (
     <DynamicModuleLoader reducers={reducers}>
@@ -45,7 +51,7 @@ const AddCommentForm: FC<AddCommentFormProps> = (props) => {
           placeholder={t('Введите коментарий')}
           className={cls.input}
         />
-        <Button theme={ButtonTheme.OUTLINE}>{t('Отправить')}</Button>
+        <Button onClick={onSubmit} theme={ButtonTheme.OUTLINE}>{t('Отправить')}</Button>
       </div>
     </DynamicModuleLoader>
   );

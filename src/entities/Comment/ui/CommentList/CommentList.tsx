@@ -16,11 +16,26 @@ export const CommentList: FC<CommentListProps> = (props) => {
   const { className, comments, isLoading } = props;
   const { t } = useTranslation();
 
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.commentList, {}, [className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </div>
+    );
+  }
+
   return (
     <div className={classNames(cls.commentList, {}, [className])}>
       {comments?.length
         ? comments.map((comment) => (
-          <CommentCard isLoading={isLoading} comment={comment} className={cls.comment} />
+          <CommentCard
+            key={comment.id}
+            isLoading={isLoading}
+            comment={comment}
+            className={cls.comment}
+          />
         ))
         : <Text text={t('Комментарии отсутствуют')} />}
     </div>
