@@ -16,6 +16,7 @@ import {
 import {
   fetchCommentsByArticleId
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/AddComentForm';
 import {
   articleDetailsCommentsReducer, getArticleComments
 } from '../../model/slices/articleDetailsCommentSlice';
@@ -58,6 +59,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <div className={classNames(cls.articleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Комментарии')} />
+        <AddCommentForm />
         <CommentList
           isLoading={isLoading}
           comments={comments}

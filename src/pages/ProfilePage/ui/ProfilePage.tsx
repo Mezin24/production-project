@@ -10,7 +10,7 @@ import {
   profileActions,
   profileReducer
 } from 'entities/Profile';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -22,6 +22,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useInitialEffects } from 'shared/lib/hooks/useInitialEffects/useInitialEffects';
+import { useParams } from 'react-router';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -40,11 +42,15 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   const error = useSelector(getProfileError);
   const readonly = useSelector(getProfileReadonly);
   const validationError = useSelector(getProfileValidateErrors);
+  const { id } = useParams<{id: string}>();
+
+  useInitialEffects(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  });
 
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
   }, [dispatch]);
 
   const validationTranslations = {
