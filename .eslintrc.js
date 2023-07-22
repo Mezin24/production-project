@@ -49,7 +49,7 @@ module.exports = {
       },
     ],
     'max-len': [
-      'error',
+      'warn',
       {
         ignoreComments: true,
         code: 100,

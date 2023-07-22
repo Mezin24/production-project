@@ -4,3 +4,6 @@ export {
   articleDetailsActions,
   articleDetailsReducer
 } from './model/slice/articleDetailsSlice';
+
+export { ArticleView } from './model/types/article';
+export { ArticleList } from './ui/ArticleList/ArticleList';
