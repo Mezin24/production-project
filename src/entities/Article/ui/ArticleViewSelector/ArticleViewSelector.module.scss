@@ -1,0 +1,8 @@
+.articleViewSelector {
+  display: flex;
+  align-items: center;
+}
+
+.selected {
+  fill: var(--inverted-primary-color);
+}

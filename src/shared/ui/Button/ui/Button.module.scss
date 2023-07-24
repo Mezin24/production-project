@@ -25,7 +25,8 @@
 .outline {
   background-color: transparent;
   color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  border: none;
+  padding: 5px;
 }
 
 .outline_red {
