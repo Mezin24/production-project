@@ -18,6 +18,7 @@ import {
 } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList';
 import { useSelector } from 'react-redux';
 import { ArticleViewSelector } from 'entities/Article/ui/ArticleViewSelector/ArticleViewSelector';
+import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticlesPage.module.scss';
 import {
 
@@ -51,20 +52,20 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   }, [dispatch]);
 
   useInitialEffects(() => {
-    dispatch(fetchArticleList());
     dispatch(articlesPageActions.init());
+    dispatch(fetchArticleList({ page: 1 }));
   });
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.articlesPage, {}, [className])}>
+      <Page className={classNames(cls.articlesPage, {}, [className])}>
         <ArticleViewSelector view={view} onViewClick={onChangeView} />
         <ArticleList
           isLoading={isLoading}
           view={view}
           articles={articles}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -1,10 +1,8 @@
-import { getUserAuthData } from 'entities/User';
 import {
-  Suspense, memo, useCallback, useMemo
+  Suspense, memo, useCallback
 } from 'react';
-import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig, AppRouteProps } from 'shared/config/routeConfig/routeConfig';
+import { AppRouteProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader/ui/PageLoader';
 import { RequireAuth } from './RequierAuth';
 
@@ -14,11 +12,7 @@ export const AppRoutes = memo(() => {
       <Route
         key={path}
         path={path}
-        element={(
-          <div className="page-wrapper">
-            {auth ? <RequireAuth>{element}</RequireAuth> : element}
-          </div>
-        )}
+        element={auth ? <RequireAuth>{element}</RequireAuth> : element}
       />
     );
 

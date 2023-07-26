@@ -24,6 +24,7 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffects } from 'shared/lib/hooks/useInitialEffects/useInitialEffects';
 import { useParams } from 'react-router';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -95,7 +96,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validationError?.length && validationError.map((err) => (
           <Text key={err} theme={TextTheme.ERROR} text={validationTranslations[err]} />
@@ -114,7 +115,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
           onChangeCurrency={onChangeCurrency}
           onChangeCountry={onChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
